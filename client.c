@@ -6,17 +6,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
-//#include <arpa/inet.h>
 #include <netdb.h>
-//#include <signal.h>
 #include <strings.h>
-//#include <fcntl.h>
-//#include <errno.h>
-//#include <sys/time.h>
 #include <memory.h>
-//#include <ifaddrs.h>
-//#include <net/if.h>
-//#include <stdarg.h>
 
 #define BACKLOG_SIZE 5
 #define BUFFER_SIZE 1024

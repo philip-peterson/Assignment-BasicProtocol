@@ -6,7 +6,7 @@ How to compile and run
 To run:
 ```
 ./server 65001
-./client storm.cise.ufl.edu 65001
+./client <HOSTNAME that the server is running on> 65001
 ```
 
 Code structure

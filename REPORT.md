@@ -4,21 +4,23 @@ How to compile and run
 `make` to compile both server and client
 
 To run:
+```
 ./server 65001
 ./client storm.cise.ufl.edu 65001
+```
 
 Code structure
 ==============
 
 In server.c, there is a loop that accepts connections. Inside that loop is another loop, which
-reads text from the socket until it finds an ASCII LF (\n). It puts all input up until the LF
-into another buffer (cmd_buf). That buffer is then sent to handleCommand for processing, which
-produces an output string. handleCommand in turn then calls the cmd function, which is what does
+reads text from the socket until it finds an ASCII `LF` (\n). It puts all input up until the `LF`
+into another buffer (`cmd_buf`). That buffer is then sent to `handleCommand` for processing, which
+produces an output string. `handleCommand` in turn then calls the `cmd` function, which is what does
 the summing/multiplying/etc.
 
-In client.c, the socket is established, and then the code forks so that the standard input can be
+In `client.c`, the socket is established, and then the code forks so that the standard input can be
 read from whilst the standard output is being written to. It buffers user input in a similar way to
-server.c did with cmd_buf, and when it is ready (detects a LF), sends it to the server. The server's
+`server.c` did with `cmd_buf`, and when it is ready (detects a `LF`), sends it to the server. The server's
 response is compared to several presets for error checking. The server's response data is buffered as
 well, and delimited by newlines as well.
 
@@ -87,4 +89,6 @@ is given.
 
 Bugs / missing items / limitations
 ==================================
-None known.
+None known, but there are likely memory leaks, since
+pointer ownership/freeing was partially neglected in favor of rapid
+development time.
